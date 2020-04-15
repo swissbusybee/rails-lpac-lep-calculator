@@ -1,0 +1,56 @@
+<body>
+  <!-- Header -->
+
+<header class="primary-header container group">
+  <h1 class="title">
+    LPAC-LEP Indicator Code Calculator
+  </h1>
+</header>
+
+  <!-- Welcome -->
+
+<section class="row-alt">
+  <div class="welcome container">
+    <h1>Welcome!</h1>
+      <p>This calculator has been created to save teachers time and energy.
+        Please select the student's grade and the current year in the input box below and click calculate.</p>
+      <p>The following <strong>LPAC-LEP Table</strong> will update with the applicable data.</p>
+  </div>
+</section>
+
+  <!-- Main Content -->
+
+<section class="row">
+  <div class="grid">
+    <div id="selection-form">
+      <%= simple_form_for(@student) do |f| %>
+        <%= f.input :school_year, collection: %w(2032-2033 2031-2032 2030-2031 2029-2030 2028-2029 2027-2028 2026-2027 2025-2026 2024-2025 2023-2024 2022-2023 2021-2022 2020-2021 2019-2020 2018-2019 2017-2018 2016-2017 2015-2016 2014-2015 2013-2014 2012-2013 2011-2012 2010-2011 2009-2010 2008-2009) %>
+        <%= f.input :school_grade, collection: %w(K 1 2 3 4 5 6 7 8 9 10 11 12) %>
+        <%= f.input :lep_indicator_code, collection: %w(1=EL(BIL/ESL/PD) F=M1 S=M2 3=M3 4=M4) %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+  </div>
+
+  <table id='table'>
+    <thead>
+      <tr>
+        <th scope="col" id="school-year-table-header">School Year</th>
+        <th scope="col" id="grade-table-header">Grade</th>
+        <th scope="col" id="lep-indicator-code-table-header">LEP Indicator Code</th>
+      </tr>
+    </thead>
+  </table>
+
+  Edit Grade:<input type="text" name="grade" id="grade">
+  <button onclick="editGrade();">Submit Grade Edit</button>
+
+  </div>
+</section>
+
+</body>
+
+<!-- Footer -->
+
+<footer class=" primary-footer container group"><small>&copy; LPAC-LEP Indicator Code Calculator</small></footer>
+
+
